@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Dropboxの設定</title>
+
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="content-language" content="ja">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link media="all" type="text/css" href="static/css/style.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/header.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/main.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/setup.css" rel="stylesheet">
+
+	<script src="static/js/util.js"></script>
+	<script src="static/js/crossbrowser.js"></script>
+
+</head>
+
+<body>
+
+<!-- ヘッダ -->
+<div class="header no_selectable">
+	<ul id="page_header">
+		<li id="title">
+			<a id="page_link" class="clickable" onclick="window.location='/';">PWS Menu</a>
+			<a> > </a>
+			<a>Dropboxの設定</a>
+		</li>
+	</ul>
+</div>
+
+<!-- メインコンテンツ -->
+<div class="contents">
+	<div class="page_description">
+		<div>Dropboxへアップロードできるようにするには、以下の手順にてアクセストークンを取得する必要があります。</div>
+	</div>
+	<div>
+		<div class="step_title">STEP1: Dropboxアカウントの作成</div>
+		<div class="step_detail">
+			<div>Dropboxアカウントを所有していない場合には<a href="https://www.dropbox.com/register" target="blank">Sign Upページ</a>からアカウントを作成します。</div>
+		</div>
+		<div class="step_title">STEP2: アプリケーションの作成</div>
+		<div class="step_detail">
+			<div><a href="https://www.dropbox.com/developers/apps/create" target="blank">Create appページ</a>にアクセスし、アプリケーションを作成します。</div>
+			<ul class="detail_list">
+				<li>「Choose an API」にて、「Dropbox API」を選択します。</li>
+				<li>「Choose the type of access you need」にて、「Full Dropbox」を選択します。</li>
+				<li>「Name your app」にて、適当な名前を与えます（"Dropbox"を含んだ名前は指定できません）。</li>
+				<li>「Create app」ボタンを押します。</li>
+			</ul>
+		</div>
+		<div class="step_title">STEP3: アプリケーションの設定</div>
+		<div class="step_detail">
+			<div><a href="https://www.dropbox.com/developers/apps" target="blank">My appsページ</a>から、STEP2で作成したアプリケーションの設定を変更／取得します。</div>
+			<ul class="detail_list">
+				<li>「Redirect URIs」に "https://pws.local/dropbox_auth_finish" を入力し、「Add」します。</li>
+				<li>
+					<div>下の入力欄に該当するアプリケーションの情報を入力します。</div>
+					<table>
+						<tr>
+							<td>App key : </td>
+							<td><input type="text" id="APP_KEY" value="{{APP_KEY}}"></td>
+						</tr>
+						<tr>
+							<td>App secret : </td>
+							<td><input type="text" id="APP_SECRET"></td>
+						</tr>
+					</table>
+				</li>
+			</ul>
+		</div>
+		<div class="step_title">STEP4: アクセストークンの発行</div>
+		<div class="step_detail">
+			<div>アクセストークンの発行と接続テストを行います。</div>
+			<ul class="detail_list">
+				<li>
+					<div>下の「Generate」ボタンを押します。</div>
+					<div>ログイン画面に移動した場合には、自身のアカウントでログインしてください。</div>
+					<div>アクセスリクエストの承認画面に移動した場合には、アクセスリクエストを許可してください。</div>
+					<div><input type="button" id="GENERATE_TOKEN" value="Generate" onclick="generateToken();"></div>
+				</li>
+				<li>
+					<div id="test_status"></div>
+					<div><input type="button" id="GOTO_MENU" value="戻る" onclick="window.location='/';"></div>
+				</li>
+			</ul>
+			<script>
+				function updateControls() {
+					document.getElementById("GENERATE_TOKEN").disabled = ((document.getElementById("APP_KEY").value.length == 0) || document.getElementById("APP_SECRET").value.length == 0);
+				}
+				function generateToken() {
+					location.href = "/dropbox_auth_start?"
+												+ "APP_KEY="    + document.getElementById("APP_KEY").value + "&"
+												+ "APP_SECRET=" + document.getElementById("APP_SECRET").value;
+				}
+			</script>
+		</div>
+		<script>
+			window.onload = function() {
+				document.getElementById("APP_KEY").addEventListener("input", function(){updateControls();});
+				document.getElementById("APP_SECRET").addEventListener("input", function(){updateControls();});
+
+				document.getElementById("GOTO_MENU").style.visibility = "hidden";
+				msg = "";
+				if(0 == "{{ACCESS_TOKEN_STATE}}".length) {
+					msg = "「Generate」すると自動的に接続テストを行い、その結果をここに表示します。";
+					document.getElementById("GENERATE_TOKEN").disabled = true;
+				} else if("ok" === "{{ACCESS_TOKEN_STATE}}") {
+					msg = "接続テストに成功しました。「戻る」でメニューページに戻ります。";
+					document.getElementById("GENERATE_TOKEN").disabled = true;
+					document.getElementById("GOTO_MENU").style.visibility = "visible";
+				} else {
+					msg = "接続テストに失敗しました。<br>もう一度やり直してみてください。";
+				}
+				document.getElementById("test_status").innerHTML = msg;
+			}
+		</script>
+	</div>
+</div>
+
+</body>
+
+</html>

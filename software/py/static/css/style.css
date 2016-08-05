@@ -1,0 +1,70 @@
+* {
+	-webkit-auto-text-size-adjust : none;
+	-webkit-text-size-adjust: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:root {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	height: 100%;
+	min-width: 320px;
+	padding: 0;
+	margin: 0;
+	font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, Meiryo, sans-serif;
+	background-color: rgba(248, 248, 248, 1.0);
+}
+
+.no_selectable {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+
+	cursor: default;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.flex_container_v {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.flex_container_v > * {
+	-webkit-flex: none;
+	flex: none;
+}
+
+.flex_container_h {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+	flex-direction: row;
+	overflow: hidden;
+}
+
+.flex_container_h > * {
+	-webkit-flex: none;
+	flex: none;
+}

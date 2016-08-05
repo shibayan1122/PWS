@@ -1,0 +1,12 @@
+[Unit]
+Description=PWS-Uploader
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /pws/py/uploader.py &
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+

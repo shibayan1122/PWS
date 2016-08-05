@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>PWS Menu</title>
+
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="content-language" content="ja">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link media="all" type="text/css" href="static/css/style.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/header.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/main.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/menu.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ヘッダ -->
+<div class="header no_selectable">
+	<ul id="page_header">
+		<li id="title">PWS Menu</li>
+	</ul>
+</div>
+
+<!-- メインコンテンツ -->
+<div class="contents">
+	<div>
+		<ul id="menu_list" class="menu_list no_selectable">
+			<li class="flex_container_h">
+				<div class="menu_title clickable" onclick="window.location = '/setup_dropbox';">Dropboxの設定</a></div>
+				<div class="menu_description">録音したデータをアップロードするには、あらかじめDropboxへの接続を許可し、アクセストークンを取得しておく必要があります。</div>
+			</li>
+			<li class="flex_container_h">
+				<div class="menu_title clickable" onclick="window.location = '/cleanup_dropbox';">Dropbox設定のクリア</div>
+				<div class="menu_description">接続許可を取り消し、Dropboxへ接続できないようにします。</div>
+			</li>
+			<li class="flex_container_h">
+				<div class="menu_title clickable" onclick="window.location = '/show_log';">ログの表示</div>
+				<div class="menu_description">ログの内容を表示します。</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+
+</html>

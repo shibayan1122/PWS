@@ -1,0 +1,30 @@
+.page_description {
+	margin-bottom: 32px;
+}
+
+.step_title {
+	color: rgb(73, 55, 89);
+	font-weight: bolder;
+	font-size: 16px;
+}
+
+.step_detail {
+	border: 2px solid rgb(224, 224, 240);
+	border-radius: 4px;
+	background-color: rgb(238, 238, 255);
+	font-size: 14px;
+	padding: 8px;
+}
+
+.step_detail:not(first-child) {
+	margin-bottom: 32px;
+}
+
+.detail_list {
+	padding-left: 0px;
+	margin-left: 1.0em;
+}
+
+.detail_list > li:not(first-child) {
+	padding-top: 10px;
+}

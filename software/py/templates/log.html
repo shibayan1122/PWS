@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>PWS Log</title>
+
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="content-language" content="ja">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link media="all" type="text/css" href="static/css/style.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/header.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/main.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/log.css" rel="stylesheet">
+
+	<script src="static/js/util.js"></script>
+	<script src="static/js/crossbrowser.js"></script>
+
+</head>
+
+<body>
+
+<!-- ヘッダ -->
+<div class="header no_selectable">
+	<ul id="page_header">
+		<li id="title">
+			<a id="page_link" class="clickable" onclick="window.location='/';">PWS Menu</a>
+			<a> > </a>
+			<a>ログの表示</a>
+		</li>
+	</ul>
+</div>
+
+<!-- メインコンテンツ -->
+<div class="contents">
+
+	<div class="tab">
+		<!-- タブ -->
+		<ul class="tab_menu">
+			<li><p id = "tab_manager_log_wrapper" onclick="onClickTab(event);">Manager</p></li>
+			<li><p id = "tab_uploader_log_wrapper" onclick="onClickTab(event);">Uploader</p></li>
+		</ul>
+
+		<!-- PWS Manager -->
+		<div id="manager_log_wrapper" class="tab_contents">
+			<pre id="manager_log"><code>{{MANAGER_LOG}}</code></pre>
+		</div>
+
+		<!-- Uploader -->
+		<div id="uploader_log_wrapper" class="tab_contents">
+			<pre id="uploader_log"><code>{{UPLOADER_LOG}}</code></pre>
+		</div>
+	</div>
+
+	<script>
+		// 
+		function onClickTab(e) {
+			updateTab("tab_manager_log_wrapper", e.target.id);
+			updateTab("tab_uploader_log_wrapper", e.target.id);
+		}
+
+		// 
+		function updateTab(tgtTabname, selTabname) {
+			var tab = document.getElementById(tgtTabname);
+			var contents = document.getElementById(tgtTabname.replace("tab_", ""));
+			if(tgtTabname !== selTabname) {
+				contents.style.display = "none";
+				removeClass(tab, "selected");
+				removeClass(contents, "selected");
+			} else {
+				contents.style.display = "block";
+				addClass(tab, "selected");
+				addClass(contents, "selected");
+			}
+		}
+
+		// 
+		window.onload = function() {
+			updateTab("tab_manager_log_wrapper", "tab_manager_log_wrapper");
+			updateTab("tab_uploader_log_wrapper", "tab_manager_log_wrapper");
+		}
+	</script>
+
+</div>
+
+</body>
+
+</html>

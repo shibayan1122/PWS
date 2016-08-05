@@ -1,0 +1,23 @@
+#N canvas 596 214 541 418 10;
+#X obj 199 227 +~;
+#X obj 198 256 +~;
+#X obj 101 121 Effect_Controller;
+#X obj 198 284 Audio_Out;
+#X obj 102 165 Recorder;
+#X obj 214 181 Player;
+#X obj 324 165 Tuner;
+#X obj -11 28 loadbang;
+#X msg -11 76 \; pd dsp \$1;
+#X obj -11 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 101 81 Audio_In;
+#X obj 85 27 Pd_Initializer;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 1;
+#X connect 6 0 1 1;
+#X connect 7 0 9 0;
+#X connect 9 0 8 0;
+#X connect 10 0 2 0;

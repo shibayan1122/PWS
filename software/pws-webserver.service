@@ -1,0 +1,12 @@
+[Unit]
+Description=PWS-Webserver
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /pws/py/pws_menu.py &
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Dropbox設定のクリア</title>
+
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="content-language" content="ja">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link media="all" type="text/css" href="static/css/style.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/header.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/main.css" rel="stylesheet">
+	<link media="all" type="text/css" href="static/css/setup.css" rel="stylesheet">
+
+	<script src="static/js/util.js"></script>
+	<script src="static/js/crossbrowser.js"></script>
+
+</head>
+
+<body>
+
+<!-- ヘッダ -->
+<div class="header no_selectable">
+	<ul id="page_header">
+		<li id="title">
+			<a id="page_link" class="clickable" onclick="window.location='/'">PWS Menu</a>
+			<a> > </a>
+			<a>Dropbox設定のクリア</a>
+		</li>
+	</ul>
+</div>
+
+<!-- メインコンテンツ -->
+<div class="contents">
+	<div class="page_description">
+	</div>
+	<div>
+		<div class="step_title">Dropbox設定のクリア</div>
+		<div class="step_detail">
+			<div>「Clean」を押すと「Dropboxの設定」で行ったDropboxへのアクセス許可を取り消します。</div>
+			<div>再度許可を与えるまでの間、録音したデータのアップロードに失敗します。</div>
+			<div><input type="button" id="CLEAN_TOKEN" value="Clean" onclick="window.location='/conf_cleanup';"></div>
+			<div><input type="button" id="GOTO_MENU" value="戻る" onclick="window.location='/';"></div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>

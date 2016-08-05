@@ -1,0 +1,43 @@
+li {
+	list-style: none;
+}
+
+#menu_list {
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+}
+
+#menu_list li {
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#menu_list li>div {
+	margin: 0px 0px 2px 2px;
+	padding: 4px;
+}
+
+.menu_title {
+	-webkit-flex: 4;
+	flex: 4;
+
+	background-color: rgb(224, 224, 240);
+	font-weight: bolder;
+	font-size: 16px;
+}
+
+.menu_title:hover {
+	text-decoration: underline;
+}
+
+.menu_description {
+	-webkit-flex: 6;
+	flex: 6;
+
+	color: rgb(108, 108, 108);
+	background-color: rgb(238, 238, 255);
+	font-size: 14px;
+}

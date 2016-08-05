@@ -1,0 +1,6 @@
+#N canvas 572 148 450 300 10;
+#X obj 189 110 adc~;
+#X obj 189 173 outlet~;
+#X text 226 109 AUDIO Input;
+#X connect 0 0 1 0;
+#X connect 0 1 1 0;

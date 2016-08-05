@@ -1,0 +1,31 @@
+.header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 4px;
+
+	background-color: rgb(73, 55, 89);
+	color: rgba(248, 248, 248, 1.0);
+
+	z-index: 1;		/* ヘッダ内のメニューがコンテンツの下になって反応しなくなるのを避ける */
+}
+
+.contents {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 64px 0 0 0;
+	min-width: 480px;
+	width: 100%;
+	height: 100%;
+	z-index: 0;		/* ヘッダ内のメニューがコンテンツの下になって反応しなくなるのを避ける */
+}
+
+.contents > *{
+	margin: auto;
+	width: 90%;
+}
+
+#page_link {
+	/*text-decoration: underline;*/
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=PWS-Manager
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/pws/bin/pws_manager &
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+

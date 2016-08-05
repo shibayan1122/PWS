@@ -1,0 +1,70 @@
+.contents {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 64px 0 0 0;
+	min-width: 480px;
+	width: 100%;
+	height: 100%;
+	z-index: 0;		/* ヘッダ内のメニューがコンテンツの下になって反応しなくなるのを避ける */
+}
+
+.contents > *{
+	margin: auto;
+	width: 90%;
+}
+
+li {
+	list-style: none;
+}
+
+/*
+TAB
+*/
+
+.tab_menu {
+	margin: 0px;
+	padding: 0px;
+}
+
+.tab_menu > li {
+	list-style-type: none;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+
+	color: rgb(64, 56, 108);
+	font-weight: bolder;
+}
+
+.tab_menu > li > * {
+	display: block;
+	margin: 0px;
+	padding: 4px 8px;
+	text-align: center;
+	border-radius: 2px 2px 0 0;
+
+	cursor: pointer;
+
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+}
+
+.tab_menu > li > *.selected {
+	border-left: 1px solid rgb(192, 192, 192);
+	border-top: 1px solid rgb(192, 192, 192);
+	border-right: 1px solid rgb(192, 192, 192);
+}
+
+.tab_menu > li > *:not(.selected) {
+	border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.tab_contents {
+	overflow: auto;
+	clear: left;
+	display: none;
+}
